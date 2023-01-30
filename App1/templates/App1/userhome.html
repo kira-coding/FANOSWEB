@@ -1,0 +1,147 @@
+{%extends 'App1/home.html'%}
+{%load static%}
+{%if user%}
+{%block main%}<link rel="stylesheet" href="{% static '/side/style.css'%}" /> 
+<style>
+    #intro {
+      background-image: url("{% static 'cover/img/bg.jpg'%}");
+      height: 100vh;
+    }
+
+    /* Height for devices larger than 576px */
+    @media (min-width: 0px) {
+      #intro {
+        margin-top: -58.59px;
+      }
+    }
+
+    .navbar .nav-link {
+      color: #fff !important;
+    }
+  </style>
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            
+            <h3>FANOS</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+           
+            <li class="active">
+               
+            </li>
+            <li><form action="/user/topics" method="POST">{%csrf_token%}
+                <a><button type="submit" class="w-100 p-3 btn btn-outline-info" style="background: #2a2a2c;" name="user" value={{user.id}}>Topics</button></a>
+                </form>
+            </li>
+            <li><form action="/user/add" method="POST">{%csrf_token%}
+              <a><button type="submit" class="w-100 p-3 btn btn-outline-info" style="background: #2a2a2c;" name="user" value={{user.id}}>Add New Topic</button></a>
+              </form>
+          </li>
+          <li><form action="/user/topics/my" method="POST">{%csrf_token%}
+            <a><button type="submit" class="w-100 p-3 btn btn-outline-info" style="background: #2a2a2c;" name="info" value={{user.id}}>My Topics</button></a>
+            </form>
+        </li>
+        </ul>
+
+        <ul class="list-unstyled CTAs">
+        </ul>
+    </nav>
+
+    <!-- Page Content Holder -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg  d-lg-block" style="z-index: 2000;
+        background: rgba(0, 0, 0);">
+            <div class="container-fluid">
+
+                <button type="button bg-dark" id="sidebarCollapse" class="navbar-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <a class="navbar-brand nav-link" target="_blank" href="/">
+                    <strong>FANOS <strong>|</strong>  </strong>
+                    {%block header%}{%endblock%}
+                  </a>
+                  <button class="navbar-toggler" type="button" id="sidebarCollapse" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+                    aria-controls="navbarExample01" aria-expanded="true" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarExample01">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             
+                    </ul>
+          
+                    <ul class="navbar-nav d-flex flex-row">
+                      <!-- Icons -->
+                      <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="https://www.youtube.com/@FANOS10" rel="nofollow"
+                          target="_blank">
+                          <i class="fab fa-youtube"></i>
+                        </a>
+                      </li>
+                      <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="https://www.facebook.com/fanosteamet" rel="nofollow" target="_blank">
+                          <i class="fab fa-facebook-f"></i>
+                        </a>
+                      </li>
+                      <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="https://twitter.com/TeamFanos" rel="nofollow" target="_blank">
+                          <i class="fab fa-twitter"></i>
+                        </a>
+                      </li>
+                      <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="https://github.com/FANOSTEAM" rel="nofollow" target="_blank">
+                          <i class="fab fa-github"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+             
+
+        </nav>
+        
+        <div id="intro" class="bg-image shadow-2-strong">
+            <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+              {%block content%}
+              
+              <div class="container d-flex align-items-center justify-content-bottom text-center h-100">
+                
+                <div class="text-white">
+                <center><h1><p> welcome <strong>{{user.nick_name}}</strong></p></h1></center>
+
+
+                </div>
+      
+                </div>{%endblock%}
+              
+            </div>
+          </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <!--Popper.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+ <!--Bootstrap JS -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+
+
+
+
+
+{%endblock%}
+{%else%}
+{%endif%}

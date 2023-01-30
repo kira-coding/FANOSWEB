@@ -1,0 +1,123 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FANOS</title>
+    <link rel="icon" href="{%static 'cover/img/pp.ico'%}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="{% static 'cover/css/mdb.min.css'%}" />
+    <!-- Custom styles -->
+</head>
+<body>{%block main%}
+      <!--Main Navigation-->
+  <header>
+    <style>
+      #intro {
+        background-image: url("{% static 'cover/img/bg.jpg'%}");
+        height: 100vh;
+      }
+
+      /* Height for devices larger than 576px */
+      @media (min-width: 992px) {
+        #intro {
+          margin-top: 0px;
+        }
+      }
+
+      .navbar .nav-link {
+        color: #fff !important;
+      }
+    </style>
+
+    <!-- Navbar -->
+
+    <!-- Navbar -->
+
+    <!-- Background image -->
+    <div id="intro" class="bg-image shadow-2-strong">
+      <div class="mask" style="background-color: rgba(0, 0, 0, 0.8);">
+        <nav class="navbar navbar-expand-lg bg-transparent d-lg-block" style="z-index: 2000; background: rgba(0, 0, 0);">
+          <div class="container-fluid">
+            <!-- Navbar brand -->
+            <a class="navbar-brand nav-link" target="_blank" href="/">
+              <strong>FANOS</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+              aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarExample01">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       
+              </ul>
+    
+              <ul class="navbar-nav d-flex flex-row">
+                <!-- Icons -->
+                <li class="nav-item me-3 me-lg-0">
+                  <a class="nav-link" href="https://www.youtube.com/@FANOS10" rel="nofollow"
+                    target="_blank">
+                    <i class="fab fa-youtube"></i>
+                  </a>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                  <a class="nav-link" href="https://www.facebook.com/fanosteamet" rel="nofollow" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                  <a class="nav-link" href="https://twitter.com/TeamFanos" rel="nofollow" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                  <a class="nav-link" href="https://github.com/FANOSTEAM" rel="nofollow" target="_blank">
+                    <i class="fab fa-github"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="container d-flex align-items-center justify-content-center text-center h-100">
+          {%block content%}
+          <div class="text-white">
+            <h1 class="mb-3">FANOS</h1>
+            <h5 class="mb-4">the best illumination</h5>
+            <a class="btn btn-outline-light btn-lg m-2" href="/login" role="button"
+              rel="nofollow" target="_blank">login</a>
+            <a class="btn btn-outline-light btn-lg m-2" href="/signin" role="button"
+              rel="nofollow" target="_blank">Sign In</a>
+
+          </div>{%endblock%} 
+        </div>
+      </div>
+    </div>
+    <!-- Background image -->
+  </header>
+  <!--Main Navigation-->
+
+  <!--Main layout-->{%endblock%}
+
+  <!--Main layout-->
+
+  <!--Footer-->
+
+  
+  <!--Footer-->
+    <!-- MDB -->
+    <script type="text/javascript" src="{% static 'cover/js/mdb.min.js'%}"></script>
+    <!-- Custom scripts -->
+
+
+    <script src="{%static '/boot/js/bootstrap.bundle.min.js' %}" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

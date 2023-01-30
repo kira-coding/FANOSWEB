@@ -1,0 +1,21 @@
+{%extends 'App1/userhome.html'%}
+{%load static%}
+
+
+{%block header%}   Add New Topic{%endblock%}
+{%block content%}
+{%if user%}<br>
+<form action="/user/add" method="POST">{%csrf_token%}
+    <input  class="form-control" 
+    placeholder="type here" 
+    aria-label="Recipient's username" 
+    name="name"
+    aria-describedby="button-addon2"
+    ></input>
+    <button type="submit" class="w-100 p-3 btn btn-outline-secondary"  name="info" value={{user.id}}>Add</button>
+    </form>
+
+{%else%}
+
+{%endif%}
+{%endblock%}

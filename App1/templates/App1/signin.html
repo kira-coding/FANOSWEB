@@ -1,0 +1,73 @@
+{%extends 'App1/home.html'%}
+{%block content%}
+{%if not userd%}
+<form action="#" method="POST" class="container w-25">
+    {%csrf_token%}
+    <div class="row">
+        <div class="col">
+          <div class="form-floating mb-1 ">
+          <input type="text" name="name" class="form-control" id="floatingInput" placeholder="bob">
+          <label for="floatingInput">Nick Name</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-1 ">
+          <input type="text" name="phone" class="form-control" id="floatingInput" placeholder="09________">
+          <label for="floatingInput">Phone</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-1 ">
+          <input type="text" name="tg" class="form-control" id="floatingInput" placeholder="optional">
+          <label for="floatingInput">telegram User Name</label>
+          </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-floating mb-1 ">
+      <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col">
+      <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" name='password'placeholder="Password">
+      <label for="floatingPassword">NewPassword</label>
+      </div>
+    </div>
+  </div>
+  {%if notm%}
+  <figcaption class="blockquote-footer" style="margin-left:50%;color: rgb(173, 42, 42);">
+    <strong>does not match!!!</strong>
+   </figcaption>
+   {%endif%}
+  <div class="row mb-2">
+    <div class="col">
+      <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" name='password2'placeholder="Password">
+      <label for="floatingPassword">confirmPassword</label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button type="submit" class="btn btn-outline-secondary">Submit</button>
+    </div>
+  </div>
+  </form>
+  {%endif%}
+  {%if usere%}
+  <strong style="color: blanchedalmond;"><h2>User already exist</h2></strong>
+  <a class="btn btn-outline-light btn-lg m-2" href="/login" role="button"
+              rel="nofollow" target="_blank">login</a>{%endif%}
+  {%if userd%}
+  <strong style="color: blanchedalmond;"><h2>Email does not exist</h2></strong>
+  {%endif%}
+{%endblock%}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="max10" id="Project-7db" database="LogicalDesign" >
+	<schema name="INSTANCE" catalogname="max10" >
+		<table name="Topic" prior="entity_1" >
+			<column name="Name" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="creator" type="INT" jt="4" mandatory="y" />
+			<column name="date" type="DATE" jt="91" mandatory="y" />
+			<column name="Topic_name" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<index name="pk_topic" unique="PRIMARY_KEY" >
+				<column name="Name" />
+			</index>
+			<fk name="fk_topic_massage" virtual="y" to_schema="max10.INSTANCE" to_table="massage" type="Identifying" >
+				<fk_column name="Name" pk="Topic_name" />
+			</fk>
+		</table>
+		<table name="entity" />
+		<table name="entity_0" />
+		<table name="massage" prior="mass" >
+			<column name="Sender_id" type="INT" jt="4" mandatory="y" />
+			<column name="Topic_name" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="content" type="VARCHAR" length="1000000" jt="12" />
+			<index name="pk_massage" unique="PRIMARY_KEY" >
+				<column name="Topic_name" />
+			</index>
+		</table>
+		<table name="max10" prior="entity_1" />
+		<table name="user" prior="entity_1" >
+			<column name="id" type="INT" jt="4" mandatory="y" />
+			<column name="nickName" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="Password" type="VARCHAR" length="18" jt="12" mandatory="y" />
+			<column name="Email" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="TelegramUserName" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="phone_number" type="NUMERIC" length="100" jt="2" mandatory="y" />
+			<index name="pk_user" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="fk_user_massage" virtual="y" to_schema="max10.INSTANCE" to_table="massage" type="Identifying" >
+				<fk_column name="id" pk="Sender_id" />
+			</fk>
+		</table>
+	</schema>
+	<layout name="max10" id="Layout-98e" show_relation="columns" >
+		<entity schema="max10.INSTANCE" name="Topic" color="C1D8EE" x="64" y="320" />
+		<entity schema="max10.INSTANCE" name="massage" color="C1D8EE" x="576" y="288" />
+		<entity schema="max10.INSTANCE" name="user" color="C1D8EE" x="48" y="48" />
+	</layout>
+</project>

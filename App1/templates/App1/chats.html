@@ -1,0 +1,64 @@
+{%extends 'App1/userhome.html'%}
+{%load static%}
+
+{%if user and topic%}
+{%block header%}   {{topic.name}}{%endblock%}
+{%block content%}
+<br><div class="overflow-auto position-absolute  end-0 h-75 w-100 " id="over" style="padding-left: 25px; margin-top: 10%;">
+{%for i in allmass%}
+    {%if i in userm%}
+    <br>
+    <figcaption class="blockquote-footer text-truncate" style="margin-left:50%;">
+        {{i.sender.nick_name}}
+       </figcaption>
+    <div class="bg-dark "style="border: 20px;  border-radius: 56px;margin-left:50% ;padding-left:5%;">
+        
+<p>{{i.content}}</p>
+    <figcaption class="blockquote-footer text-truncate">
+       {{i.date}}
+      </figcaption>
+    </div>{%else%}
+    <br>
+    <figcaption class="blockquote-footer text-truncate" style="margin-left:10%;">
+        {{i.sender.nick_name}}
+       </figcaption>
+    <div class="bg-dark "style="border: 20px;  border-radius: 56px;margin-left:2% ;padding-left:5%;margin-right:48% ;">
+    <p>{{i.content}}</p>
+    <figcaption class="blockquote-footer text-truncate">
+        {{i.date}}
+       </figcaption>
+    </div>
+    {%endif%}
+    {%endfor%}</div>
+<div class="position-sticky bottom-0 start-0" style="  width: 100%;">
+   
+<form class="input-group  w-100 border-radius: 56px;  "  style='margin-bottom: 17%'action="#" method="POST">
+    {%csrf_token%}
+    <textarea  class="form-control" 
+    placeholder="type here" 
+    aria-label="Recipient's username" 
+    name="massage"
+    aria-describedby="button-addon2"
+    ></textarea>
+    <button class="btn btn-outline-secondary" type="submit" style='margin-right: 2%;'name="info" value={{user.id}} id="button-addon2">send</button></form>
+  </div>
+<script type="text/javascript">
+/**var append_increment=0;
+setInterval(function(){
+    $.ajax({
+        type:'GET',
+        url:"{ %  url 'update'%}",
+        data : {'append_increment':append_increment,'user':'{{user.id}}'}
+    })
+    .done(function(response){
+        $('#over').contents=response;
+        append_increment+=10
+    });
+},30000)**/
+</script>
+  {%endblock%}
+{%else%}
+github
+{%endif%}
+
+

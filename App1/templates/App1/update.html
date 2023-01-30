@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="{% static 'cover/css/mdb.min.css'%}" />
+{%for i in allmass%}
+    {%if i in userm%}
+    <br>
+    <figcaption class="blockquote-footer text-truncate" style="margin-left:50%;">
+        {{i.sender.nick_name}}
+       </figcaption>
+    <div class="bg-dark "style="border: 20px;  border-radius: 56px;margin-left:50% ;padding-left:5%;">
+        
+<p>{{i.content}}</p>
+    <figcaption class="blockquote-footer text-truncate">
+       {{i.date}}
+      </figcaption>
+    </div>{%else%}
+    <br>
+    <figcaption class="blockquote-footer text-truncate" style="margin-left:10%;">
+        {{i.sender.nick_name}}
+       </figcaption>
+    <div class="bg-dark "style="border: 20px;  border-radius: 56px;margin-left:2% ;padding-left:5%;margin-right:48% ;">
+    <p>{{i.content}}</p>
+    <figcaption class="blockquote-footer text-truncate">
+        {{i.date}}
+       </figcaption>
+    </div>
+    {%endif%}
+    {%endfor%}
+    <script src="{%static '/boot/js/bootstrap.bundle.min.js' %}

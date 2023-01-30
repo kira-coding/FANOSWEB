@@ -1,0 +1,17 @@
+{%extends 'App1/userhome.html'%}
+{%load static%}
+{%if user%}
+
+{%block content%}<br>
+<div class="overflow-auto mh-100 w-50">
+{%for i in topic%}
+<form action="/user/{{i.id}}" method="POST">
+  {%csrf_token%}
+  <button type="submit" class="btn btn-light w-100 text-truncate" name="user" value="{{user.id}}" style="height: 60px;">{{i.name}}</button>
+</form>
+{%endfor%}
+</div>
+{%endblock%}
+{%else%}
+{{email}}
+{%endif%}
